@@ -1,18 +1,29 @@
+import AnalyticCards from "@/components/AnalyticCart";
+import { AnalyticCharts } from "@/components/AnalyticCharts";
+import WorldMapDashboard from "@/components/AnalyticsMap";
+import { GoChevronRight } from "react-icons/go";
+
 const DashboardHome = () => {
   return (
-    <div className="antialiased bg-gray-50 dark:bg-gray-900">
-      <nav className="bg-white border-b border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
-        <h1>Navbar</h1>
+    <div>
+      <nav className="flex justify-between items-center p-4  my-3">
+        <h1 className="text-gray-400">Analytics</h1>
+        <div className="flex items-center justify-center text-gray-400 space-x-2">
+          <span>Dashboards</span>
+          <span className="translate-y-0.5"><GoChevronRight /></span>
+          <span>Analytics</span>
+        </div>
       </nav>
-      <aside
-        className="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
-        aria-label="Sidenav"
-        id="drawer-navigation"
-      ></aside>
-
-      <main className="p-4 md:ml-64 h-auto pt-20"></main>
+      <AnalyticCards />
+      <AnalyticCharts />
+   <WorldMapDashboard/>
+      <footer className="flex justify-center mt-10">
+        <p className="text-gray-400">2025 © Reback. Crafted with ❤️ by Gouda</p>
+      </footer>
     </div>
   );
 };
 
 export default DashboardHome;
+
+
