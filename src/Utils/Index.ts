@@ -1,3 +1,4 @@
+import type { JSX } from 'react/jsx-runtime';
 export const Sidebar = [
   {
     title: "Analytics",
@@ -70,3 +71,10 @@ export const AnalyticsData: AnalyticsData[] = [
 
 // navbar
 
+
+export interface FinanceCard {
+  price: number;
+  title: string;
+  icon: JSX.Element;
+  percentage: number;
+}

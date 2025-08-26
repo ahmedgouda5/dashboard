@@ -1,6 +1,7 @@
-import AnalyticCards from "@/components/AnalyticCart";
-import { AnalyticCharts } from "@/components/AnalyticCharts";
-import WorldMapDashboard from "@/components/AnalyticsMap";
+import AnalyticCards from "@/components/AnalyticsCom/AnalyticCart";
+import { AnalyticCharts } from "@/components/AnalyticsCom/AnalyticCharts";
+import WorldMapDashboard from "@/components/AnalyticsCom/AnalyticsMap";
+import AnalyticsTables from "@/components/AnalyticsCom/AnalyticsTables";
 import { GoChevronRight } from "react-icons/go";
 
 const DashboardHome = () => {
@@ -10,13 +11,16 @@ const DashboardHome = () => {
         <h1 className="text-gray-400">Analytics</h1>
         <div className="flex items-center justify-center text-gray-400 space-x-2">
           <span>Dashboards</span>
-          <span className="translate-y-0.5"><GoChevronRight /></span>
+          <span className="translate-y-0.5">
+            <GoChevronRight />
+          </span>
           <span>Analytics</span>
         </div>
       </nav>
       <AnalyticCards />
       <AnalyticCharts />
-   <WorldMapDashboard/>
+      <WorldMapDashboard />
+      <AnalyticsTables />
       <footer className="flex justify-center mt-10">
         <p className="text-gray-400">2025 © Reback. Crafted with ❤️ by Gouda</p>
       </footer>
@@ -25,5 +29,3 @@ const DashboardHome = () => {
 };
 
 export default DashboardHome;
-
-
