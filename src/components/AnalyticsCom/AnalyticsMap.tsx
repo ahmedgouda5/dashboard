@@ -1,21 +1,32 @@
 import { useState } from "react";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import { Globe, ChevronDown } from "lucide-react";
 
-// رابط ملف GeoJSON (خريطة العالم)
-const geoUrl =
-  "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
-
 // ================== Types ==================
-interface GeographyType {
-  rsmKey: string;
-  properties: {
-    name?: string;
-    [key: string]: unknown;
-  };
+interface Country {
+  id: string;
+  name: string;
+  path: string; // مسار الـ SVG
 }
 
-// ================== Component ==================
+// مثال لبيانات دول (ممكن تزود باقي الدول أو تجيب SVG كامل)
+const countries: Country[] = [
+  {
+    id: "usa",
+    name: "United States",
+    path: "M50 80 Q150 60 250 100 L280 200 Q200 220 120 180 Q40 120 50 80 Z",
+  },
+  {
+    id: "brazil",
+    name: "Brazil",
+    path: "M200 300 Q250 280 300 320 L320 450 Q270 470 240 440 Q180 360 200 300 Z",
+  },
+  {
+    id: "china",
+    name: "China",
+    path: "M580 60 Q750 40 900 100 L920 250 Q800 270 650 220 Q560 140 580 60 Z",
+  },
+];
+
 const WorldMapDashboard: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
 
@@ -40,38 +51,21 @@ const WorldMapDashboard: React.FC = () => {
 
         {/* World Map Section */}
         <div className="p-6">
-          <div className="rounded-lg h-96 overflow-hidden">
-            <ComposableMap projectionConfig={{ scale: 140 }}>
-              <Geographies geography={geoUrl}>
-                {({ geographies }: { geographies: GeographyType[] }) =>
-                  geographies.map((geo) => (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      onMouseEnter={() =>
-                        setSelectedCountry(geo.properties.name || null)
-                      }
-                      onMouseLeave={() => setSelectedCountry(null)}
-                      style={{
-                        default: {
-                          fill: "#374151", // gray-700
-                          outline: "none",
-                        },
-                        hover: {
-                          fill: "#4B5563", // gray-600
-                          outline: "none",
-                        },
-                        pressed: {
-                          fill: "#6B7280", // gray-500
-                          outline: "none",
-                        },
-                      }}
-                      className="transition-colors duration-300"
-                    />
-                  ))
-                }
-              </Geographies>
-            </ComposableMap>
+          <div className="rounded-lg h-96 overflow-hidden bg-gray-900 flex items-center justify-center">
+            <svg viewBox="0 0 1000 500" className="w-full h-full">
+              {countries.map((country) => (
+                <path
+                  key={country.id}
+                  d={country.path}
+                  fill={selectedCountry === country.name ? "#4B5563" : "#374151"}
+                  stroke="#9CA3AF"
+                  strokeWidth={1}
+                  className="transition-colors duration-300 cursor-pointer"
+                  onMouseEnter={() => setSelectedCountry(country.name)}
+                  onMouseLeave={() => setSelectedCountry(null)}
+                />
+              ))}
+            </svg>
           </div>
 
           {/* Tooltip */}
