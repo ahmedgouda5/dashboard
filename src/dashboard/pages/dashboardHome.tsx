@@ -2,6 +2,7 @@ import AnalyticCards from "@/components/AnalyticsCom/AnalyticCart";
 import { AnalyticCharts } from "@/components/AnalyticsCom/AnalyticCharts";
 import WorldMapDashboard from "@/components/AnalyticsCom/AnalyticsMap";
 import AnalyticsTables from "@/components/AnalyticsCom/AnalyticsTables";
+import Footer from "@/components/Footer";
 import { GoChevronRight } from "react-icons/go";
 
 const DashboardHome = () => {
@@ -21,9 +22,7 @@ const DashboardHome = () => {
       <AnalyticCharts />
       <WorldMapDashboard />
       <AnalyticsTables />
-      <footer className="flex justify-center mt-10">
-        <p className="text-gray-400">2025 © Reback. Crafted with ❤️ by Gouda</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

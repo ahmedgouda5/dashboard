@@ -4,10 +4,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { AppSidebar, Sidebar } from "@/Utils/Index";
+import { Sidebar } from "@/Utils/Index";
 import { Link } from "react-router";
 import { CiHome } from "react-icons/ci";
-import { IoBagOutline, IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import {  IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { MdContacts, MdEmail } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
 import { RiTodoLine } from "react-icons/ri";
@@ -48,45 +48,28 @@ const SideBar = () => {
                 <span className="text-gray-400 dark:text-white font-light text-sm">
                   App
                 </span>
-                <AccordionTrigger className="   text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <span className="flex items-center gap-2">
-                    <IoBagOutline
-                      style={{ fontSize: "1.25rem", color: "blue" }}
-                    />
-                    Ecommerce
-                  </span>
-                </AccordionTrigger>
-                {AppSidebar?.map((item, index) => (
-                  <AccordionContent key={index}>
-                    <Link
-                      to={item.href}
-                      className="block p-2 font-bold  text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                    >
-                      {item.title}
-                    </Link>
-                  </AccordionContent>
-                ))}
+                
                 <ul className="flex flex-col gap-5 mt-3">
-                  <li className="flex items-center gap-2 font-medium text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <Link to="/App/chat" className="flex p-2  items-center gap-2 font-medium text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                     <IoChatbubbleEllipsesOutline />
-                    Chat
-                  </li>
-                  <li className="flex items-center gap-2 font-medium text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <span>Chat</span>
+                  </Link>
+                  <Link to="/App/email" className="flex p-2  items-center gap-2 font-medium text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                     <MdEmail />
-                    Email
-                  </li>
-                  <li className="flex items-center gap-2 font-medium text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <span>Email</span>
+                  </Link>
+                  <Link to='/App/calender' className="flex p-2  items-center gap-2 font-medium text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                     <SlCalender />
-                    Calender
-                  </li>
-                  <li className="flex items-center gap-2 font-medium text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <span>Calender</span>
+                  </Link>
+                  <Link to={"/App/todo"} className="flex p-2  items-center gap-2 font-medium text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                     <RiTodoLine />
-                    Todo
-                  </li>
-                  <li className="flex items-center gap-2 font-medium text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <span>Todo</span>
+                  </Link>
+                  <Link to={"/App/contacts"} className="flex p-2  items-center gap-2 font-medium text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                     <MdContacts />
-                    Contacts
-                  </li>
+                    <span>Contacts</span>
+                  </Link>
                 </ul>
               </AccordionItem>
             </Accordion>
