@@ -22,7 +22,7 @@ const SideBar = () => {
       {/* زرار فتح/غلق السايدبار للشاشات الصغيرة */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-[50%] left-2 z-50 md:hidden p-2 bg-gray-200 rounded-full dark:bg-gray-700"
+        className="fixed top-[50%] left-2 z-50  p-2 bg-gray-200 rounded-full dark:bg-gray-700"
       >
         {isOpen ? <FiArrowLeft /> : <FiArrowRight />}
       </button>
